@@ -1,11 +1,48 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lecture-Wallah</title>
-  <!-- other meta tags -->
-    <style>
+
+  <!-- Padding and layout fix -->
+  <style>
+    body {
+      padding: 16px;
+      box-sizing: border-box;
+      background-color: #f7f3ff;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      padding: 16px;
+      margin: auto;
+      max-width: 100%;
+    }
+
+    .card {
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 12px;
+      }
+      .container, .card {
+        padding: 10px;
+      }
+    }
+  </style
         :root {
             --primary-purple: #7B4AFF;
             --dark-bg: #1A1A1A;
