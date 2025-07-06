@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रेरणा | Inspiration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            to { text-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            font-weight: 300;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .search-box {
+            width: 600px;
+            max-width: 90vw;
+            padding: 1.5rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-box:focus {
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .search-box::placeholder {
+            color: #a0a0a0;
+        }
+
+        .quotes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1200px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .quote-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 350px;
+            max-width: 90vw;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: cardFloat 4s ease-in-out infinite;
+        }
+
+        .quote-card:nth-child(even) {
+            animation-delay: -2s;
+        }
+
+        .quote-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .quote-card:hover::before {
+            left: 100%;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+            border-color: #ffd700;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            color: #a0a0a0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .om-symbol {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 215, 0, 0.1);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .button-container {
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .wisdom-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .wisdom-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .wisdom-button:active {
+            transform: translateY(0px);
+        }
+            .title {
+                font-size: 2rem;
+            }
+            
+            .quotes-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .quote-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+    <div class="om-symbol" style="top: 10%; left: 10%;">ॐ</div>
+    <div class="om-symbol" style="top: 20%; right: 15%;">ॐ</div>
+    <div class="om-symbol" style="bottom: 15%; left: 20%;">ॐ</div>
+    <div class="om-symbol" style="bottom: 10%; right: 10%;">ॐ</div>
+
+    <div class="container">
+
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search" id="searchBox">
+        </div>
+
+        <div class="quotes-container">
+            <div class="quote-card">
+                <div class="quote-text">
+                    "अप्प दीपो भव।"<br>
+                    स्वयं अपना दीपक बनो।
+                </div>
+                <div class="quote-author">भगवान बुद्ध</div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="wisdom-button" onclick="getNewWisdom()">New Wisdom</button>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Add search functionality
+        document.getElementById('searchBox').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    // Simple search redirect to Google
+                    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+                }
+            }
+        });
+
+        // Initialize particles
+        createParticles();
+
+        // Add quote rotation with large collection
+        const allQuotes = [
+            { text: "अप्प दीपो भव।<br>स्वयं अपना दीपक बनो।", author: "भगवान बुद्ध" },
+            { text: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>कर्म पर तुम्हारा अधिकार है, फल पर नहीं।", author: "भगवान कृष्ण" },
+            { text: "सहस्राब्दी न एकस्य महत्तर विजयो युधि।<br>हज़ारों को युद्ध में जीतने से बेहतर है स्वयं को जीतना।", author: "भगवान बुद्ध" },
+            { text: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।<br>जब-जब धर्म की हानि होती है, तब-तब मैं अवतार लेता हूं।", author: "भगवान कृष्ण" },
+            { text: "मनसा वाचा कर्मणा सर्वथा नु खो भिक्खवे।<br>मन, वचन और कर्म से सभी प्रकार से पवित्र रहो।", author: "भगवान बुद्ध" },
+            { text: "योगस्थ: कुरु कर्माणि सङ्गं त्यक्त्वा।<br>योग में स्थित होकर कर्म करो, आसक्ति छोड़कर।", author: "भगवान कृष्ण" },
+            { text: "न हि ज्ञानेन सदृशं पवित्रमिह विद्यते।<br>ज्ञान के समान इस संसार में कोई पवित्र वस्तु नहीं है।", author: "भगवान कृष्ण" },
+            { text: "अत्ता हि अत्तनो नाथो।<br>आत्मा ही अपना स्वामी है।", author: "भगवान बुद्ध" },
+            { text: "समत्वं योग उच्यते।<br>समता ही योग है।", author: "भगवान कृष्ण" },
+            { text: "द्रोणो हि मे सदा वत्स त्वमेव प्रिय एव च।<br>धैर्य सभी गुणों का आधार है।", author: "भगवान बुद्ध" },
+            { text: "श्रद्धावान् लभते ज्ञानं तत्पर: संयतेन्द्रिय:।<br>श्रद्धावान व्यक्ति ज्ञान प्राप्त करता है।", author: "भगवान कृष्ण" },
+            { text: "नालं सहस्सेन सहस्स योधा।<br>हजारों योद्धाओं से बेहतर है एक विजेता।", author: "भगवान बुद्ध" },
+            { text: "कर्मजं बुद्धि युक्ता हि फलं त्यक्त्वा मनीषिण:।<br>बुद्धिमान व्यक्ति फल की इच्छा छोड़कर कर्म करते हैं।", author: "भगवान कृष्ण" },
+            { text: "मनो पुब्बङ्गमा धम्मा मनो सेट्ठा मनो मया।<br>मन सभी धर्मों का अगुआ है।", author: "भगवान बुद्ध" },
+            { text: "उद्धरेदात्मनात्मानं नात्मानमवसादयेत्।<br>अपने द्वारा अपना उद्धार करो।", author: "भगवान कृष्ण" },
+            { text: "सब्बदानं धम्मदानं जिनाति।<br>सभी दानों से धर्म दान श्रेष्ठ है।", author: "भगवान बुद्ध" },
+            { text: "तस्मात्सर्वेषु कालेषु मामनुस्मर युध्य च।<br>इसलिए सभी समय में मुझे स्मरण करो और युद्ध करो।", author: "भगवान कृष्ण" },
+            { text: "अप्पमाण चेतसा विहरन्तं।<br>असीम चित्त से रहने वाला।", author: "भगवान बुद्ध" },
+            { text: "प्रकृति: क्रियते कर्माणि गुणै: सर्वश: सदा।<br>प्रकृति के गुण सदा कर्म करते रहते हैं।", author: "भगवान कृष्ण" },
+            { text: "निर्वाण परमं सुखं।<br>निर्वाण परम सुख है।", author: "भगवान बुद्ध" }
+        ];
+
+        let currentQuoteIndex = 0;
+        
+        function getNewWisdom() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % allQuotes.length;
+            const quote = allQuotes[currentQuoteIndex];
+            
+            const quoteCard = document.querySelector('.quote-card');
+            const quoteText = quoteCard.querySelector('.quote-text');
+            const quoteAuthor = quoteCard.querySelector('.quote-author');
+            
+            // Add fade effect
+            quoteCard.style.opacity = '0';
+            quoteCard.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                quoteText.innerHTML = quote.text;
+                quoteAuthor.textContent = quote.author;
+                quoteCard.style.opacity = '1';
+                quoteCard.style.transform = 'translateY(0px)';
+            }, 200);
+        }
+    </script>
+</body>
+</html>
